@@ -1,0 +1,34 @@
+.topbar {
+  position: fixed;
+  width: 100vw;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  height: 64px;
+  align-items: center;
+  padding: 0 32px;
+}
+
+main {
+  background: blue;
+  display: flex;
+  max-width: 1080px;
+  height: 100vh;
+  margin: 0 auto;
+}
+
+main div {
+  padding: 24px;
+}
+
+.nav {
+  background: orange;
+  width: 320px;
+}
+
+.content {
+  background: grey;
+  width: 100%;
+}
