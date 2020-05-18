@@ -1,23 +1,15 @@
 import React from "react";
+
+import { Button } from "@material-ui/core";
+
 import "./styles.css";
+
+import Header from "./components/Header";
 
 function Home() {
   return (
     <div>
-      <header className="header">
-        <div className="toolbar">
-          <div>
-            <a href="/">Conecta Dev</a>
-            <input type="text" />
-          </div>
-
-          <div>
-            <button>Nova Postagem</button>
-            <span>Img 1</span>
-            <span>Img 2</span>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       <div className="header"></div>
 
