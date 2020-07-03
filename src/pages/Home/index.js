@@ -26,7 +26,7 @@ function Home() {
   return (
     <div className={classes.root}>
       <Header />
-
+      
       <div className={classes.toolbar}></div>
 
       <main className={classes.main}>
