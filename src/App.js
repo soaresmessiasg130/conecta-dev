@@ -1,15 +1,23 @@
 import React from "react";
-import Home from "./pages/Home";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
 import { ThemeProvider } from '@material-ui/core/styles';
+import Home from "./pages/Home";
+import SignIn from "./pages/SignIn";
+import NotFound from "./pages/NotFound";
 
 import theme from './theme';
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <div>
-        <Home />
-      </div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path='/signin' element={<SignIn />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }

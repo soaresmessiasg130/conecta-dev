@@ -34,7 +34,7 @@ function NavBar() {
       <Button
         variant="outlined"
         color="secondary"
-        className={classes.button}>Registrar-se Grátis</Button>
+        className={classes.button}>Registrar Grátis</Button>
 
       <ListSubheader>Tags em Alta</ListSubheader>
 
