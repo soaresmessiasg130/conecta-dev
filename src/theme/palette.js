@@ -11,4 +11,7 @@ export default {
     main: colors.blueGrey[700],
     dark: colors.blueGrey[900],
   },
+  basics: {
+    bgWhite: '#e5efe7',
+  }
 };
