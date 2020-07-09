@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import {
   Typography,
@@ -10,6 +11,7 @@ import {
   Link
 } from '@material-ui/core';
 import LockOutĺinedIcon from '@material-ui/icons/LockOutlined';
+import axios from '../../utils/axios';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -57,6 +59,12 @@ function Copyright () {
 
 function SignIn () {
   const classes = useStyles();
+  const navigate = useNavigate();
+
+  function handleSignIn () {
+    axios.post('/api/home/login')
+      .then(response => console.log(response));
+  }
 
   return (
     <Grid container className={classes.root}>
@@ -117,6 +125,7 @@ function SignIn () {
               autocomplete='current-password'
             />
             <Button
+              onClick={handleSignIn}
               variant='contained'
               color='primary'
               fullWidth

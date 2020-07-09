@@ -8,6 +8,8 @@ import NotFound from "./pages/NotFound";
 
 import theme from './theme';
 
+import './mock';
+
 function App() {
   return (
     <ThemeProvider theme={theme}>
