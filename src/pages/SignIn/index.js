@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import {
   Typography,
@@ -7,9 +7,12 @@ import {
   Avatar,
   TextField,
   Button,
-  Link
+  Link,
+  FormHelperText
 } from '@material-ui/core';
 import LockOutĺinedIcon from '@material-ui/icons/LockOutlined';
+import auth from '../../services/auth';
+import { useNavigate } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -57,6 +60,19 @@ function Copyright () {
 
 function SignIn () {
   const classes = useStyles();
+  const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  async function handleSignIn () {
+    try {
+      await auth.SignIn(email, password);
+      navigate('/');
+    } catch (error) {
+      setErrorMessage(error.response.data.message);
+    }
+  }
 
   return (
     <Grid container className={classes.root}>
@@ -102,8 +118,11 @@ function SignIn () {
               id='email'
               label='E-mail'
               name='email'
-              autocomplete='email'
+              type='email'
+              autoComplete='email'
               autoFocus
+              value={email}
+              onChange={e => setEmail(e.target.value)}
             />
             <TextField
               variant='outlined'
@@ -114,9 +133,17 @@ function SignIn () {
               id='password'
               name='password'
               type='password'
-              autocomplete='current-password'
+              autoComplete='current-password'
+              value={password}
+              onChange={e => setPassword(e.target.value)}
             />
+            { errorMessage && (
+              <FormHelperText error>
+                {errorMessage}
+              </FormHelperText>
+            )}
             <Button
+              onClick={handleSignIn}
               variant='contained'
               color='primary'
               fullWidth
