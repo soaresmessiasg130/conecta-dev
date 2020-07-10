@@ -90,7 +90,7 @@ function PostCard ({ post }) {
         <IconButton aria-label="comment">
           <MessageIcon />
           <Typography
-            className
+            className=""
             color="textSecondary"
             variant="body2"
           >

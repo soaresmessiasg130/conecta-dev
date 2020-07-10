@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Posts = [
   {
-    id: 1,
+    id: 0,
     author: {
       id: 1,
       name: "Messias Soares",
@@ -36,7 +36,7 @@ const Posts = [
     image: "/images/posts/post8.png"
   },
   {
-    id: 1,
+    id: 2,
     author: {
       id: 1,
       name: "Messias Soares",
@@ -50,7 +50,7 @@ const Posts = [
     image: "/images/posts/post9.jpeg"
   },
   {
-    id: 1,
+    id: 3,
     author: {
       id: 1,
       name: "Messias Soares",
@@ -64,7 +64,7 @@ const Posts = [
     image: "/images/posts/post1.png"
   },
   {
-    id: 1,
+    id: 4,
     author: {
       id: 1,
       name: "Messias Soares",
@@ -78,7 +78,7 @@ const Posts = [
     image: "/images/posts/post9.jpeg"
   },
   {
-    id: 1,
+    id: 5,
     author: {
       id: 1,
       name: "Messias Soares",
