@@ -1,5 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import Store from './store';
 
 import { ThemeProvider } from '@material-ui/core/styles';
 import Home from "./pages/Home";
@@ -12,15 +14,17 @@ import theme from './theme';
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <GuestRoute path='/signin' element={<SignIn />} />
-          <Route path='*' element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </ThemeProvider>
+    <Provider store={Store}>
+      <ThemeProvider theme={theme}>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <GuestRoute path='/signin' element={<SignIn />} />
+            <Route path='*' element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </ThemeProvider>
+    </Provider>
   );
 }
 

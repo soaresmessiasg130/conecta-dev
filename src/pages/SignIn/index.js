@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import SignInAccountAction from '../../store/actions/AccountAction';
 import { makeStyles } from '@material-ui/core/styles';
 import {
   Typography,
@@ -11,7 +13,6 @@ import {
   FormHelperText
 } from '@material-ui/core';
 import LockOutĺinedIcon from '@material-ui/icons/LockOutlined';
-import auth from '../../services/auth';
 import { useNavigate } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
@@ -59,6 +60,7 @@ function Copyright () {
 }
 
 function SignIn () {
+  const dispatch = useDispatch();
   const classes = useStyles();
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
@@ -67,7 +69,7 @@ function SignIn () {
 
   async function handleSignIn () {
     try {
-      await auth.SignIn(email, password);
+      await dispatch(SignInAccountAction(email, password));
       navigate('/');
     } catch (error) {
       setErrorMessage(error.response.data.message);

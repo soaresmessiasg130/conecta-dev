@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useSelector } from 'react-redux';
 import { Button } from "@material-ui/core";
 import AppBar from "@material-ui/core/AppBar";
 import ToolBar from "@material-ui/core/Toolbar";
@@ -7,8 +7,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import SvgIcon from "@material-ui/core/SvgIcon";
 import { Bell } from "react-feather";
 import Avatar from "@material-ui/core/Avatar";
-
-// import "../../styles.css";
 
 const useStyles = makeStyles({
   appBar: {
@@ -35,6 +33,8 @@ const useStyles = makeStyles({
 
 export default function Header() {
   const styles = useStyles();
+  const user = useSelector(state => state.user);
+  
   return (
     <AppBar position="fixed" color="inherit" className={styles.appBar}>
       <ToolBar>
@@ -51,20 +51,8 @@ export default function Header() {
           <SvgIcon className={styles.bell}>
             <Bell />
           </SvgIcon>
-          <Avatar alt="Messias Soares" src="" />
+          <Avatar alt="Messias Soares" src={user && user.avatar} />
         </div>
-        {/* <div>
-          <a href="/">Conecta Dev</a>
-          <input type="text" />
-        </div>
-
-        <div>
-          <Button variant="contained" color="primary">
-            New Post
-          </Button>
-          <span>Img 1</span>
-          <span>Img 2</span>
-        </div> */}
       </ToolBar>
     </AppBar>
   );
