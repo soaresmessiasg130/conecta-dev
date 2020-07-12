@@ -1,20 +1,33 @@
 import axios from '../utils/axios';
 
 class Auth {
-  SignIn(email, password) {
+  SignIn = (email, password) => {
     return new Promise((resolve, reject) => {
       axios.post('api/home/login', {email, password})
         .then(response => {
-          if (response.data.user)
+          if (response.data.user) {
+            this.setUser(response.data.user);
             resolve(response.data.user)
-          else
+          } else {
             reject(response.data.user);
+          }
         })
         .catch(error => {
           reject(error);
         });
     });
   }
+
+  setUser = (user) => {
+    localStorage.setItem('user', JSON.stringify(user));
+  }
+
+  getUser = () => {
+    const user = localStorage.getItem('user');
+    return user;
+  }
+
+  isAuthenticated = () => !!this.getUser();
 }
 
 const auth = new Auth();
