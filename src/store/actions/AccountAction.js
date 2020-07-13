@@ -2,6 +2,7 @@ import AuthService from '../../services/auth';
 
 export const LOGIN_SUCCESS = '@ACCOUNT/LOGIN_SUCCESS';
 export const SILENT_LOGIN = '@ACCOUNT/SILENT_LOGIN';
+export const SIGNOUT = '@ACCOUNT/SIGNOUT';
 
 const SignInAccountAction = (email, password) => {
   return async (dispatch) => {
@@ -29,4 +30,13 @@ const SetUserData = () => {
   }
 }
 
-export { SignInAccountAction,SetUserData };
+const SignOut = () => {
+  return async (dispatch) => {
+    await AuthService.SignOut();
+    dispatch({
+      type: SIGNOUT
+    })
+  }
+}
+
+export { SignInAccountAction, SetUserData, SignOut };
