@@ -1,12 +1,12 @@
 import axios from '../utils/axios';
 
-class Auth {
+class AuthService {
   SignIn = (email, password) => {
     return new Promise((resolve, reject) => {
       axios.post('api/home/login', {email, password})
         .then(response => {
           if (response.data.user) {
-            // this.setUser(response.data.user);
+            this.setToken('JWT');
             resolve(response.data.user)
           } else {
             reject(response.data.user);
@@ -18,21 +18,29 @@ class Auth {
     });
   }
 
-  setUser = (user) => {
-    localStorage.setItem('user', JSON.stringify(user));
+  SignInWithToken = () => {
+    return new Promise((resolve, reject) => {
+      axios.post('api/home/me')
+        .then(response => {
+          if (response.data.user) {
+            resolve(response.data.user)
+          } else {
+            reject(response.data.user);
+          }
+        })
+        .catch(error => {
+          reject(error);
+        });
+    });
   }
 
-  getUser = () => {
-    const user = localStorage.getItem('user');
+  setToken = (token) => localStorage.setItem('accessToken', token);
 
-    if (user) return JSON.parse(user);
+  getToken = () => localStorage.getItem('accessToken');
 
-    return user;
-  }
-
-  isAuthenticated = () => !!this.getUser();
+  isAuthenticated = () => !!this.getToken();
 }
 
-const auth = new Auth();
+const auth = new AuthService();
 
 export default auth;

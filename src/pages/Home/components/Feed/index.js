@@ -1,6 +1,6 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import PostCard from '../../../../Components/PostCard';
+import { makeStyles } from '@material-ui/core/styles';
+import PostCard from '../../../../components/PostCard';
 
 const useStyles = makeStyles((theme) => ({
   root: {}

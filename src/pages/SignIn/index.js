@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import SignInAccountAction from '../../store/actions/AccountAction';
+import { SignInAccountAction } from '../../store/actions/AccountAction';
 import { makeStyles } from '@material-ui/core/styles';
 import {
   Typography,
