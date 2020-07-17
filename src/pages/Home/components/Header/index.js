@@ -8,6 +8,7 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 import { Bell } from 'react-feather';
 import Account from './Account';
+import Notification from './Notification';
 
 const useStyles = makeStyles({
   appBar: {
@@ -48,9 +49,7 @@ export default function Header() {
           <Button variant='contained' color='primary' className={styles.button}>
             New Post
           </Button>
-          <SvgIcon className={styles.bell}>
-            <Bell />
-          </SvgIcon>
+          <Notification />
           <Account />
         </div>
       </Toolbar>
