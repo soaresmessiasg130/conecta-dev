@@ -1,9 +1,16 @@
 import React, { useRef, useState, useEffect} from 'react';
 import { useSelector, useDispatch } from "react-redux";
 import {
+  Avatar,
   SvgIcon,
   IconButton,
-  Popover
+  Popover,
+  Box,
+  Typography,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemAvatar
 } from '@material-ui/core';
 import {
   Bell as BellIcon,
@@ -12,27 +19,31 @@ import {
   Heart as HeartIcon,
   Users as ConnectionIcon
 } from 'react-feather';
-// import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
 import { GetNotifications } from '../../../../../store/actions/NotificationAction';
 
-// const useStyles = makeStyles((theme) => ({
-//   root: {
+const useStyles = makeStyles((theme) => ({
+  icon: {
+    background: theme.palette.secondary.main,
+    color: theme.palette.secondary.contrastText
+  }
+}));
 
-//   }
-// }));
-
+const iconsMap = {
+  review: StarIcon,
+  new_comment: MessageIcon,
+  like: HeartIcon,
+  connection: ConnectionIcon
+}
 
 function Notification () {
   const account = useSelector(state => state.account);
-  const notifications = useSelector(state => state.notifications);
-
-  console.log(notifications);
-
+  const notifications = useSelector(state => state.notifications.notifications);
   const dispatch = useDispatch();
   const isAuthenticated = !!account.user;
   const ref = useRef(null);
-  // const styles = useStyles();
+  const styles = useStyles();
   const [isOpen, setIsOpen] = useState(false);
 
   function handleOpen () {
@@ -52,7 +63,7 @@ function Notification () {
       <>
         <IconButton ref={ref} onClick={handleOpen}>
           <SvgIcon>
-            <Bell />
+            <BellIcon />
           </SvgIcon>
         </IconButton>
 
@@ -69,7 +80,36 @@ function Notification () {
             horizontal: 'right',
           }}
         >
-          The content of the Popover.
+          <Box p={2} >
+            <Typography variant="h6" color="primaryColor">
+              Notificações
+            </Typography>
+          </Box>
+
+          <List>
+            {notifications && notifications.map(notification => {
+              const Icon = iconsMap[notification.type];
+
+              return (
+                <ListItem>
+                  <ListItemAvatar>
+                    <Avatar className={styles.icon}>
+                      <SvgIcon>
+                        <Icon />
+                      </SvgIcon>
+                    </Avatar>
+                  </ListItemAvatar>
+                  <ListItemText
+                    primary={notification.title}
+                    primaryTypographyProps={{
+                      variant: 'subtitle2',
+                      color: 'textPrimary'
+                    }}
+                    secondary={notification.description} />
+                </ListItem>
+              );
+            })}
+          </List>
         </Popover>
       </>
     )

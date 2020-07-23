@@ -7,7 +7,7 @@ mock.onGet('/api/notifications').reply(200, {
       id: '1b81ybs18yb328sajxkb',
       title: 'Novas avaliações recebidas',
       description: 'Você recebeu 1 nova avaliação',
-      type: 'reviews',
+      type: 'review',
       createdAt: moment()
         .subtract(2, 'hours')
         .toDate()
