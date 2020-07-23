@@ -1,13 +1,13 @@
 import React from 'react';
 import {
-  Button,
   AppBar,
   Toolbar,
-  SvgIcon
+  Box
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { Bell } from 'react-feather';
 import Account from './Account';
+import Notification from './Notification';
+import NewPost from "./NewPost";
 
 const useStyles = makeStyles({
   appBar: {
@@ -24,12 +24,6 @@ const useStyles = makeStyles({
     display: 'flex',
     alignItems: 'center',
   },
-  button: {
-    marginRight: 12,
-  },
-  bell: {
-    marginRight: 12,
-  },
 });
 
 export default function Header() {
@@ -43,15 +37,21 @@ export default function Header() {
           alt='private class >'
           className={styles.img}
         />
+
         <div className={styles.grow}></div>
+
         <div className={styles.userSection}>
-          <Button variant='contained' color='primary' className={styles.button}>
-            New Post
-          </Button>
-          <SvgIcon className={styles.bell}>
-            <Bell />
-          </SvgIcon>
-          <Account />
+          <Box ml={2}>
+            <NewPost />
+          </Box>
+
+          <Box ml={2}>
+            <Notification />
+          </Box>
+
+          <Box ml={2}>
+            <Account />
+          </Box>
         </div>
       </Toolbar>
     </AppBar>

@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from 'react';
+import { useEffect, useCallback } from 'react';
 import AuthService from '../../services/auth';
 import { SetUserData } from '../../store/actions/AccountAction';
 import { useDispatch } from 'react-redux';

@@ -24,7 +24,7 @@ function Account () {
   const handleSignOut = () => {
     handleMenuClose();
     dispatch(SignOut());
-    navigate('/signin');
+    // navigate('/signin');
   }
 
   const redirectSignIn = () => {
