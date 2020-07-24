@@ -21,7 +21,7 @@ import {
 } from 'react-feather';
 import { makeStyles } from '@material-ui/core/styles';
 
-import { GetNotifications } from '../../../../../store/actions/NotificationAction';
+import { GetNotifications } from '../../../../store/actions/NotificationAction';
 
 const useStyles = makeStyles((theme) => ({
   icon: {

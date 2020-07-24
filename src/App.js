@@ -7,7 +7,6 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import Auth from './components/Auth';
 import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
-import NotFound from "./pages/NotFound";
 import GuestRoute from './routes/GuestRoute';
 
 import './mock';
@@ -20,9 +19,8 @@ function App() {
         <BrowserRouter>
           <Auth>
             <Routes>
-              <Route path="/" element={<Home />} />
               <GuestRoute path='/signin' element={<SignIn />} />
-              <Route path='*' element={<NotFound />} />
+              <Route path="//*" element={<Home />} />
             </Routes>
           </Auth>
         </BrowserRouter>
