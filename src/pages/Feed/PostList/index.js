@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from '@material-ui/core/styles';
-import PostCard from '../../../../components/PostCard';
+import PostCard from '../../../components/PostCard';
 
 const useStyles = makeStyles((theme) => ({
   root: {}
@@ -93,7 +93,7 @@ const Posts = [
   },
 ];
 
-function Feed() {
+function PostList() {
   const classes = useStyles();
 
   return (
@@ -105,4 +105,4 @@ function Feed() {
   )
 }
 
-export default Feed;
+export default PostList;

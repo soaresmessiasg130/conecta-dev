@@ -6,7 +6,7 @@ import {
   Menu,
   MenuItem
 } from '@material-ui/core';
-import { SignOut } from '../../../../../store/actions/AccountAction';
+import { SignOut } from '../../../../store/actions/AccountAction';
 import { useDispatch } from 'react-redux';
 
 function Account () {
