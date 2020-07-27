@@ -80,8 +80,8 @@ function Notification () {
             horizontal: 'right',
           }}
         >
-          <Box p={2} >
-            <Typography variant="h6" color="primaryColor">
+          <Box p={2}>
+            <Typography variant='h6'>
               Notificações
             </Typography>
           </Box>
@@ -91,7 +91,7 @@ function Notification () {
               const Icon = iconsMap[notification.type];
 
               return (
-                <ListItem>
+                <ListItem key={notification.id}>
                   <ListItemAvatar>
                     <Avatar className={styles.icon}>
                       <SvgIcon>
@@ -99,13 +99,13 @@ function Notification () {
                       </SvgIcon>
                     </Avatar>
                   </ListItemAvatar>
+
                   <ListItemText
                     primary={notification.title}
                     primaryTypographyProps={{
-                      variant: 'subtitle2',
-                      color: 'textPrimary'
+                      variant: 'subtitle2'
                     }}
-                    secondary={notification.description} />
+                    secondary={notification.description}/>
                 </ListItem>
               );
             })}
