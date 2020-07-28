@@ -1,14 +1,19 @@
 import React, { useState, useCallback } from 'react';
+import { useSelector } from 'react-redux';
 import {
   Box,
   AppBar,
   Toolbar,
   Button,
-  TextField
+  TextField,
+  Typography,
+  Divider,
+  Avatar
 } from '@material-ui/core';
 import { Autocomplete } from '@material-ui/lab';
 import { makeStyles } from '@material-ui/styles';
 import { useDropzone } from 'react-dropzone';
+import Markdown from 'react-markdown';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,10 +44,15 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '14px',
     padding: '8px',
     background: 'transparent'
+  },
+  avatar: {
+    marginRight: theme.spacing(2)
   }
 }));
 
 function New() {
+  const account = useSelector(state => state.account);
+  const isAuthenticated = !!account.user;
   const styles = useStyles();
   const [image, setImage] = useState(null);
   const [title, setTitle] = useState('');
@@ -78,6 +88,18 @@ function New() {
     { title: 'webdev', value: 'webdev' }
   ]
 
+  const handleTitle = (event) => {
+    setTitle(event.currentTarget.value);
+  };
+
+  const handleTags = (event, values) => {
+    setTags(values);
+  };
+
+  const handleMarkdown = (event) => {
+    seText(event.currentTarget.value);
+  };
+
   return (
     <>
       <Box
@@ -92,7 +114,11 @@ function New() {
 
           { image && <img className={styles.image} src={image} alt='background' /> }
 
-          <TextField id='title' placeholder='Título do Post' fullWidth />
+          <TextField
+            id='title'
+            placeholder='Título do Post'
+            fullWidth
+            onChange={handleTitle}/>
 
           <Autocomplete
             multiple
@@ -101,6 +127,8 @@ function New() {
             getOptionLabel={(option) => option.title}
             defaultValue={[allTags[3]]}
             filterSelectedOptions
+            value={tags}
+            onChange={handleTags}
             renderInput={(params) => (
               <TextField
                 {...params}
@@ -110,11 +138,34 @@ function New() {
             )}
           />
 
-          <textarea className={styles.textArea} placeholder='Escreva o conteúdo do Post...'></textarea>
+          <textarea
+            className={styles.textArea}
+            placeholder='Escreva o conteúdo do Post...'
+            onChange={handleMarkdown}></textarea>
         </Box>
 
         <Box width='50%' height='100%' padding={2}>
+          <Box display='flex' alignItems='center'>
+            <Box className={styles.avatar}>
+              <Avatar src={account.user?.avatar} />
+            </Box>
+
+            <Box>
+              <Typography variant='body1'>{account.user?.name}</Typography>
+
+              <Typography variant='body2'>10 meses atrás</Typography>
+            </Box>
+          </Box>
+
           { image && <img className={styles.imagePreview} src={image} alt='background' /> }
+
+          <Typography variant='h2'>{title}</Typography>
+
+          <Typography variant='h5'>{tags.map(item => (`#${item.title} `))}</Typography>
+
+          <Divider />
+
+          <Markdown source={text} />
         </Box>
       </Box>
 
