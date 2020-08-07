@@ -1,68 +1,114 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Public Class
 
-## Available Scripts
+Uma rede social para amantes da tecnologia. Dev, compartilhe seu conhecimento e receba aprenda junto com a comunidade do Public Class!
 
-In the project directory, you can run:
+[go to Public Class](http://publicclass.vercel.app)
 
-### `yarn start`
+[![License](https://img.shields.io/github/license/soaresmessiasg130/conecta-dev?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Table of Contents
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Make sure this is updated based on the sections included:
 
-### `yarn test`
+- [Documentation](#documentation)
+- [Installation](#installation)
+- [Getting Started](#getting-started)
+- [Contributing](#contributing)
+- [Support + Feedback](#support--feedback)
+- [Vulnerability Reporting](#vulnerability-reporting)
+- [Thank You](#thank-you)
+- [What is Auth0](#what-is-auth0)
+- [License](#license)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Documentation
 
-### `yarn build`
+This section should describe the documentation contained within this repo as well as links to other helpful pages. Full documentation for the library should not, ideally, be located in the repo README and must not be duplicated from somewhere else. If the README is being updated to adhere to these guidelines and the documentation only exists in the readme, consider moving it to a docs page or a Quickstart.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Consider adding:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+- How to generate documentation in the project (if applicable)
+- Links to Quickstarts and sample projects
+- Links to any specific `.md` files in the repo
+- Links to [auth0/docs](https://auth0.com/docs/)
+- Links to [Auth0 blog posts](https://auth0.com/blog/tech/)
+- Links to any helpful supporting information about the project
+- Links to relevant Community posts (consider parsing and adding somewhere more easily accessible)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Installation
 
-### `yarn eject`
+This section should outline what is required to install and configure this project. Consider adding:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Prerequisites for use
+- Command line instructions using `bash` syntax:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+npm install
+composer install
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Links to information about package manager used
+- Information about `.env` values needed (include an `example.env` file)
+- Include different ways to install, indicate preferred method
+- Include instructions on how to install older versions
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Getting Started
 
-## Learn More
+This section should include basic usage instructions that can be successfully completed after [Installation](#installation) above. This section should be a short introduction to how this library can be used, not a duplication of existing Quickstarts.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Consider adding:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Working with the Authentication API
+	- Basic login
+	- Basic code exchange
+	- Authorize redirect
+	- Logout
+- Working with the Management API
+	- Perform a Client Credentials grant
+	- Get Users by page
+	- Get Clients by page
+	- Get Connections by page
+- Other common tasks
+- Security recommendations
+	- State validation
+	- ID token verification
 
-### Code Splitting
+## Contributing
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+We appreciate feedback and contribution to this repo! Before you get started, please see the following:
 
-### Analyzing the Bundle Size
+- [Auth0's general contribution guidelines](https://github.com/auth0/open-source-template/blob/master/GENERAL-CONTRIBUTING.md)
+- [Auth0's code of conduct guidelines](https://github.com/auth0/open-source-template/blob/master/CODE-OF-CONDUCT.md)
+- [This repo's contribution guide](CONTRIBUTING.md)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+## Support + Feedback
 
-### Making a Progressive Web App
+Include information on how to get support. Consider adding:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+- Use [Issues](https://github.com/auth0/open-source-template/issues) for code-level support
+- Use [Community](https://community.auth0.com/) for usage, questions, specific cases
+- Link to other support forums and FAQs
 
-### Advanced Configuration
+## Vulnerability Reporting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://auth0.com/whitehat) details the procedure for disclosing security issues.
 
-### Deployment
+## What is Auth0?
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+Auth0 helps you to easily:
 
-### `yarn build` fails to minify
+- implement authentication with multiple identity providers, including social (e.g., Google, Facebook, Microsoft, LinkedIn, GitHub, Twitter, etc), or enterprise (e.g., Windows Azure AD, Google Apps, Active Directory, ADFS, SAML, etc.)
+- log in users with username/password databases, passwordless, or multi-factor authentication
+- link multiple user accounts together
+- generate signed JSON Web Tokens to authorize your API calls and flow the user identity securely
+- access demographics and analytics detailing how, when, and where users are logging in
+- enrich user profiles from other data sources using customizable JavaScript rules
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+[Why Auth0?](https://auth0.com/why-auth0)
+
+## Thank You! (optional)
+
+Information on the dependencies used, if desired.
+
+## License
+
+MIT [LICENSE](LICENSE).
